@@ -1,0 +1,35 @@
+def count_sel(lst):
+    # declare the simple variables
+    receivedIntegers = len(lst)
+    differentValues = len(set(lst))
+    
+    # find how many integers only occur once in the list
+    def only_once(lst):
+        onlyOnce = 0
+        for number in lst:
+            if lst.count(number) == 1:
+                onlyOnce += 1
+        return onlyOnce
+    
+    # find the maximum number of times an integer occurs in the list
+    def maximum_occurence(lst):
+        ints = []
+        num = 0
+        
+        # find the num
+        for number in lst:
+            if lst.count(number) >= num:
+                num = lst.count(number)
+                
+        # find the ints
+        for number in lst:
+            if lst.count(number) == num and number not in ints:
+                ints.append(number)
+        
+        # sort the list
+        ints.sort()
+            
+        return [ints, num]
+    
+    
+    return [receivedIntegers, differentValues, only_once(lst), maximum_occurence(lst)]
